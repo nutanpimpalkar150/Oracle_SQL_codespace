@@ -8,12 +8,12 @@ cells:
       b. color color_b
       FROM
       palette_a a
-      NNER JOIN palette_b b ON a.color = b. color;
+      INNER JOIN palette_b b ON a.color = b. color;
     languageId: oracle-sql
   - kind: 2
     value: |
       SELECT
-      a-id id_a,
+      a.id id_a,
       a. color color_a,
       b. id id_b,
       b. color color_b
@@ -62,8 +62,8 @@ cells:
       a. id id_a,
       a. color color_a,
       b.id id_b,
-      b. color color b
-      r-R0M
+      b. color color_b
+      FROM
       palette_a a
       FULL OUTER JOIN palette_b b ON a. color
       = b. color;
@@ -71,22 +71,14 @@ cells:
   - kind: 2
     value: |
       SELECT
-      a,id id_a,
-      a. color color_a,
-      b. id id_b,
-      b. color color_b
+      a.id id_a,
+      a.color color_a,
+      b.id id_b,
+      b.color color_b
       FROM
       palette_a a
       FULL JOIN palette_b b ON a.color = b.color
       WHERE a.id IS NULL OR b.id IS NULL;
-    languageId: oracle-sql
-  - kind: 2
-    value: |
-      SELECT
-      *
-      FROM
-      T1
-      INNER JOIN T2 ON join_predicate;
     languageId: oracle-sql
   - kind: 2
     value: |
@@ -100,30 +92,19 @@ cells:
          order_date DESC;
     languageId: oracle-sql
   - kind: 2
-    value: order_items.order_id = orders.order_id
-    languageId: oracle-sql
-  - kind: 2
-    value: |
-      SELECT
-      *
-      FROM
-      T1
-      INNER JOIN T2 USING( cl, c2,...);
-    languageId: oracle-sql
-  - kind: 2
     value: |
       SELECT
       *
       FROM
       orders
-      INNER JOIN order_items USING( order_id);
+      INNER JOIN order_items USING( order_id)
       ORDER BY
       order_date DESC;
     languageId: oracle-sql
   - kind: 2
     value: |
       SELECT
-         name AS customer name,
+         name AS "customer name",
          order_id,
          order_date,
          item_id,
@@ -137,6 +118,9 @@ cells:
             order_date DESC,
             order_id DESC,
             item_id ASC;
+    languageId: oracle-sql
+  - kind: 2
+    value: ""
     languageId: oracle-sql
   - kind: 2
     value: |

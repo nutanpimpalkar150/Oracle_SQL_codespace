@@ -2,23 +2,23 @@ cells:
   - kind: 2
     value: |
       SELECT
-      ROUND(AVG(standard _ cost ), 2) avg_std_cost
+      ROUND(AVG(standard_cost ), 2) avg_std_cost
       FROM
       products;
     languageId: oracle-sql
   - kind: 2
     value: |
       SELECT
-      ROUND(AVG(standard-cost),2) avg_std_cost.
-      ROUND(AVG(list_price ) . 2) avg_list_price
+      ROUND(AVG(standard_cost),2) avg_std_cost,
+      ROUND(AVG(list_price ) ,2) avg_list_price
       FROM
       products;
     languageId: oracle-sql
   - kind: 2
     value: |
       SELECT
-      RCJND(
-      AVG( DISTINCT list_price ),
+      Round(
+      AVG( DISTINCT list_price),
       2
       ) avg_list_price
       FROM
@@ -29,7 +29,7 @@ cells:
       SELECT
       category_id,
       ROUND(
-      AVG( list_pnce ).
+      AVG( list_price),
       2
       ) avg_list_price
       FROM
@@ -40,8 +40,8 @@ cells:
   - kind: 2
     value: |
       SELECT
-      category_name
-      ROUND( AVG(list_price),2 ) avg_list_price
+      category_name,
+      ROUND(AVG(list_price),2 ) avg_list_price
       FROM
       products
       INNER JOIN product_categories
@@ -56,24 +56,24 @@ cells:
       SELECT
       category_name,
       ROUND(
-      AVG( list-price),
+      AVG( list_price),
       2
       ) avg_list_price
       FROM
       products
       INNER JOIN product_categories
-      USING(category-id)
+      USING(category_id)
       GROUP BY
       category_name
       HAVING
-      AVG( list_price )> 1000
+      AVG(list_price) > 1000
       ORDER BY
       category_name;
     languageId: oracle-sql
   - kind: 2
     value: |
       SELECT
-      ROUND( AVG( avg_list_price ) . 2) avg_of_avg
+      ROUND( AVG(avg_list_price),2) avg_of_avg
       FROM
       (
       SELECT
@@ -113,7 +113,8 @@ cells:
     languageId: oracle-sql
   - kind: 2
     value: |
-      CREATE TABLE items(val number);
+      CREATE TABLE items(val NUMBER);
+
       INSERT INTO items(val) VALUES(1);
       INSERT INTO items(val) VALUES(1);
       INSERT INTO items(val) VALUES(2);
@@ -193,13 +194,13 @@ cells:
       category_name,
       COUNT( product_id )
       FROM
-      product_cateqories
+      product_categories
        LEFT JOIN products
-      USING(category-id)
+      USING(category_id)
       GROUP BY
       category_name
       HAVING
-      COUNT( product_id ) > 50
+      COUNT(product_id) > 50
       ORDER BY
       category_name;
     languageId: oracle-sql
@@ -207,22 +208,23 @@ cells:
     value: |
       SELECT
       last_name,
-      COUNT( last_name )
+      COUNT(last_name)
       FROM
       contacts
       GROUP BY
-      last_nane
+      last_name
       HAVING
       COUNT( last_name)> 1
       ORDER BY
       last_name;
     languageId: oracle-sql
   - kind: 2
-    value: |
+    value: |+
       SELECT
       MAX(list_price)
       FROM
-      products:
+      products;
+
     languageId: oracle-sql
   - kind: 2
     value: |
@@ -243,7 +245,7 @@ cells:
   - kind: 2
     value: |
       SELECT
-      category_ld,
+      category_id,
       MAX(list_price )
       FROM
       products
@@ -308,14 +310,14 @@ cells:
   - kind: 2
     value: |
       SELECT
-      category_id.
-      MIN( list_price )
+      category_id,
+      MIN(list_price)
       FROM
       products
       GROUP BY
-      category_ld
+      category_id
       ORDER BY
-      category_ld;
+      category_id;
     languageId: oracle-sql
   - kind: 2
     value: |
@@ -369,7 +371,7 @@ cells:
   - kind: 2
     value: |
       SELECT
-      order-id,
+      order_id,
       SUM( quantity * unit_price ) order_total
       FROM
       order_items
@@ -381,7 +383,7 @@ cells:
   - kind: 2
     value: |
       SELECT
-      order-id,
+      order_id,
       SUM( quantity * unit_price ) order_total
       FROM
       order_items
@@ -396,7 +398,7 @@ cells:
     value: |
       SELECT
       product_name,
-      SUM( quantity * untt_price ) sales
+      SUM( quantity * unit_price ) sales
       FROM
       order_items
       INNER JOIN products

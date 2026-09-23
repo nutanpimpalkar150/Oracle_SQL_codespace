@@ -1,0 +1,12 @@
+The `company.db` file is an SQLite database file that will be created and populated by the `sqlite_company_demo.py` script. Since it is a binary file, it cannot be represented in a text format. Instead, the database will be generated when you run the Python script.
+
+Here’s how the `sqlite_company_demo.py` file will create and populate the `company.db` database:
+
+1. Connect to SQLite and create the database file.
+2. Define the `department` and `employee` tables.
+3. Insert five records into each table.
+4. Fetch and display the records.
+
+You can run the `sqlite_company_demo.py` script to create the `company.db` file with the specified tables and records. 
+
+If you need the contents of the `sqlite_company_demo.py` file, please let me know!

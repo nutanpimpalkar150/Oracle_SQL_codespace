@@ -1,10 +1,13 @@
 cells:
+  - kind: 1
+    value: "## Introduction to SELECT Statement"
+    languageId: markdown
   - kind: 2
     value: |
       SELECT
       name
       FROM
-      custcmers;
+      customers;
     languageId: oracle-sql
   - kind: 2
     value: |
@@ -29,10 +32,13 @@ cells:
   - kind: 2
     value: |
       SELECT
-      UPPER( 'This is a string')
+      UPPER('This is a string')
       From
       what_table;
     languageId: oracle-sql
+  - kind: 1
+    value: "## Oracle Dual Table"
+    languageId: markdown
   - kind: 2
     value: SELECT * FROM dual;
     languageId: oracle-sql
@@ -46,23 +52,9 @@ cells:
   - kind: 2
     value: |
       SELECT
-      (10 + s)/2
+      (10 + 5)/2
       FROM
       dual;
-    languageId: oracle-sql
-  - kind: 2
-    value: |
-      SELECT
-      column_1,
-      column_2,
-      column_3,
-      ...
-      FROM
-      table_nane
-      ORDER BY
-      column_1 [ASC I DESCJ [NULLS FIRST I NULLS LAST],
-      column_1 [ASC I DESC] [NULLS FIRST I NULLS LAST],
-      ...
     languageId: oracle-sql
   - kind: 2
     value: |
@@ -85,11 +77,14 @@ cells:
       name ASC;
     languageId: oracle-sql
   - kind: 2
-    value: ORDER BY name ASC
+    value: ORDER_BY name ASC
     languageId: oracle-sql
   - kind: 2
     value: ORDER BY name
     languageId: oracle-sql
+  - kind: 1
+    value: "## Introduction to Oracle ORDER BY clause"
+    languageId: markdown
   - kind: 2
     value: |
       SELECT
@@ -116,7 +111,7 @@ cells:
     value: |
       SELECT
          name,
-         credi_limit
+         credit_limit
       FROM
          customers
       ORDER BY
@@ -138,7 +133,7 @@ cells:
   - kind: 2
     value: |
       SELECT
-          cenmtry_id,
+          country_id,
       city,
       state
       FROM
@@ -149,11 +144,11 @@ cells:
   - kind: 2
     value: |
       SELECT
-         country_id ,
+         country_id,
          city,
          state
       FROM
-         locatims
+         locations
       ORDER BY
          state
       ASC NULLS LAST;
@@ -166,7 +161,7 @@ cells:
       FROM
            customers
       ORDER BY
-      UPPER(name),
+      UPPER(name);
     languageId: oracle-sql
   - kind: 2
     value: |
